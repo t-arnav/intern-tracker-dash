@@ -3,9 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const ProfileCard = () => {
+  const navigate = useNavigate();
+
+  const handleViewProfile = () => {
+    navigate("/profile");
+  };
+
   return (
     <Card className="bg-gradient-card border-0 shadow-custom-lg">
       <CardContent className="p-6">
@@ -44,7 +51,10 @@ const ProfileCard = () => {
             </div>
           </div>
           
-          <Button className="bg-gradient-primary hover:bg-primary-dark transition-all gap-2">
+          <Button 
+            onClick={handleViewProfile}
+            className="bg-gradient-primary hover:bg-primary-dark transition-all gap-2"
+          >
             View Profile
             <ArrowRight className="h-4 w-4" />
           </Button>
