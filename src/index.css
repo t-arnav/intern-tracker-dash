@@ -55,7 +55,7 @@
     --radius: 0.75rem;
 
     /* Dashboard Specific */
-    --dashboard-bg: 248 250 252;
+    --dashboard-bg: linear-gradient(135deg, hsl(20 100% 95%), hsl(210 100% 95%));
     --sidebar-bg: 0 0% 100%;
     --navbar-bg: 0 0% 100%;
     
