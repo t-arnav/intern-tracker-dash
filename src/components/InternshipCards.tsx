@@ -64,7 +64,7 @@ const liveInternships = [
 
 const InternshipCards = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Previous Internships */}
       <Card className="shadow-custom-md">
         <CardHeader>
@@ -94,42 +94,6 @@ const InternshipCards = () => {
                     <span>{internship.rating}</span>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-
-      {/* Recommended Internships */}
-      <Card className="shadow-custom-md">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <TrendingUp className="h-5 w-5 text-primary" />
-            Recommended for You
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {recommendedInternships.map((internship, index) => (
-            <div key={index} className="p-4 bg-gradient-card rounded-lg border border-border/50">
-              <div className="space-y-2">
-                <div className="flex justify-between items-start">
-                  <h4 className="font-semibold text-sm">{internship.company}</h4>
-                  <Badge className="bg-primary-muted text-primary border-primary/20">
-                    {internship.match} match
-                  </Badge>
-                </div>
-                <p className="text-sm text-muted-foreground">{internship.role}</p>
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-3 w-3" />
-                    {internship.location}
-                  </span>
-                  <span className="font-medium text-success">{internship.salary}</span>
-                </div>
-                <Button size="sm" variant="outline" className="w-full mt-2 gap-1">
-                  View Details
-                  <ExternalLink className="h-3 w-3" />
-                </Button>
               </div>
             </div>
           ))}

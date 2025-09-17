@@ -12,9 +12,15 @@ import {
   Edit,
   Github,
   Linkedin,
-  Globe
+  Globe,
+  FileText,
+  Briefcase,
+  Award as Certificate,
+  Upload,
+  Plus
 } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import SkillLogos from "./SkillLogos";
 
 interface ProfileData {
   name: string;
@@ -109,13 +115,7 @@ const ProfileView = ({ profileData, onEdit }: ProfileViewProps) => {
             
             <div>
               <h4 className="font-semibold mb-3">Skills & Technologies</h4>
-              <div className="flex flex-wrap gap-2">
-                {profileData.skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="bg-primary-muted text-primary">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
+              <SkillLogos skills={profileData.skills} />
             </div>
           </CardContent>
         </Card>
@@ -137,6 +137,91 @@ const ProfileView = ({ profileData, onEdit }: ProfileViewProps) => {
                 <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4" />
                   <span>Expected {profileData.graduationYear}</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Documents & Portfolio Card */}
+          <Card className="shadow-custom-md">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <FileText className="h-5 w-5 text-primary" />
+                Documents & Portfolio
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                {/* Resume */}
+                <div className="p-3 bg-gradient-card rounded-lg border border-border/50">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-primary" />
+                      <span className="font-medium text-sm">Resume</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" className="gap-1">
+                        <Upload className="h-3 w-3" />
+                        Upload
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="bg-gradient-primary hover:bg-primary-dark gap-1"
+                        onClick={() => window.open('https://www.resume.com/builder', '_blank')}
+                      >
+                        <Plus className="h-3 w-3" />
+                        Create
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Portfolio */}
+                <div className="p-3 bg-gradient-card rounded-lg border border-border/50">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="h-4 w-4 text-secondary" />
+                      <span className="font-medium text-sm">Portfolio</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" className="gap-1">
+                        <Upload className="h-3 w-3" />
+                        Upload
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="bg-gradient-secondary hover:bg-secondary-dark gap-1"
+                        onClick={() => window.open('https://www.portfoliobox.net/', '_blank')}
+                      >
+                        <Plus className="h-3 w-3" />
+                        Create
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* License & Certifications */}
+                <div className="p-3 bg-gradient-card rounded-lg border border-border/50">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Certificate className="h-4 w-4 text-success" />
+                      <span className="font-medium text-sm">Licenses & Certifications</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" className="gap-1">
+                        <Upload className="h-3 w-3" />
+                        Upload
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="bg-gradient-success hover:bg-success gap-1"
+                        onClick={() => window.open('https://www.credly.com/', '_blank')}
+                      >
+                        <Plus className="h-3 w-3" />
+                        Create
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>

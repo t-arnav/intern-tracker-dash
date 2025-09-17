@@ -51,6 +51,16 @@ const Profile = () => {
     setIsEditing(true);
   };
 
+  // Check if edit parameter is in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const shouldEdit = urlParams.get('edit') === 'true';
+  
+  if (shouldEdit && !isEditing) {
+    setIsEditing(true);
+    // Remove the edit parameter from URL
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+
   return (
     <div className="min-h-screen bg-dashboard-bg">
       <Navbar />
