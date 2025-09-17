@@ -14,13 +14,13 @@ const Index = () => {
         
         <main className="flex-1 overflow-auto">
           <div className="p-6 space-y-6">
-            {/* Recommended Internships - Top Priority */}
-            <RecommendedInternships />
-            
-            {/* Profile Card - Full Width */}
+            {/* Profile Card - At Top */}
             <ProfileCard />
             
-            {/* Other Internship Cards */}
+            {/* Recommended Internships */}
+            <RecommendedInternships />
+            
+            {/* Previous Internships and Live Applications - Side by Side */}
             <InternshipCards />
           </div>
         </main>
